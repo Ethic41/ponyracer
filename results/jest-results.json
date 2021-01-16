@@ -1,0 +1,3030 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 13,
+  "numPassedTests": 35,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 13,
+  "numTotalTests": 35,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1609175343405,
+  "success": false,
+  "testResults": [
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 3,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175347194,
+        "start": 1609175344789
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\App.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "App.vue"
+          ],
+          "duration": 34,
+          "failureMessages": [],
+          "fullName": "App.vue renders the navbar",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders the navbar"
+        },
+        {
+          "ancestorTitles": [
+            "App.vue"
+          ],
+          "duration": 32,
+          "failureMessages": [],
+          "fullName": "App.vue renders the router view inside a Suspense component",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders the router view inside a Suspense component"
+        },
+        {
+          "ancestorTitles": [
+            "App.vue"
+          ],
+          "duration": 11,
+          "failureMessages": [],
+          "fullName": "App.vue renders an error if router view does not load",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders an error if router view does not load"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175347528,
+        "start": 1609175347248
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\utils\\FromNow.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "FromNow"
+          ],
+          "duration": 3,
+          "failureMessages": [],
+          "fullName": "FromNow should transform a date",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should transform a date"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175347970,
+        "start": 1609175347564
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Races.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Races.vue"
+          ],
+          "duration": 33,
+          "failureMessages": [],
+          "fullName": "Races.vue should display every race name in a title",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display every race name in a title"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175348495,
+        "start": 1609175348015
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Race.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Race.vue"
+          ],
+          "duration": 36,
+          "failureMessages": [],
+          "fullName": "Race.vue should display a race name and its ponies",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display a race name and its ponies"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175348898,
+        "start": 1609175348534
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Pony.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Pony.vue"
+          ],
+          "duration": 9,
+          "failureMessages": [],
+          "fullName": "Pony.vue should display an image and a legend",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display an image and a legend"
+        },
+        {
+          "ancestorTitles": [
+            "Pony.vue"
+          ],
+          "duration": 5,
+          "failureMessages": [],
+          "fullName": "Pony.vue should emit an event on click",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should emit an event on click"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 5,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175349541,
+        "start": 1609175344767
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Login.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Login.vue"
+          ],
+          "duration": 110,
+          "failureMessages": [],
+          "fullName": "Login.vue should display a form",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display a form"
+        },
+        {
+          "ancestorTitles": [
+            "Login.vue"
+          ],
+          "duration": 44,
+          "failureMessages": [],
+          "fullName": "Login.vue should display errors for login",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display errors for login"
+        },
+        {
+          "ancestorTitles": [
+            "Login.vue"
+          ],
+          "duration": 23,
+          "failureMessages": [],
+          "fullName": "Login.vue should display errors for password",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display errors for password"
+        },
+        {
+          "ancestorTitles": [
+            "Login.vue"
+          ],
+          "duration": 56,
+          "failureMessages": [],
+          "fullName": "Login.vue should call the authenticate function on submit",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should call the authenticate function on submit"
+        },
+        {
+          "ancestorTitles": [
+            "Login.vue"
+          ],
+          "duration": 90,
+          "failureMessages": [],
+          "fullName": "Login.vue should display an alert on submission failure",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display an alert on submission failure"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 3,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175350187,
+        "start": 1609175349588
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Alert.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Alert.vue"
+          ],
+          "duration": 20,
+          "failureMessages": [],
+          "fullName": "Alert.vue should display the alert content",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display the alert content"
+        },
+        {
+          "ancestorTitles": [
+            "Alert.vue"
+          ],
+          "duration": 19,
+          "failureMessages": [],
+          "fullName": "Alert.vue should have the correct CSS class",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should have the correct CSS class"
+        },
+        {
+          "ancestorTitles": [
+            "Alert.vue"
+          ],
+          "duration": 21,
+          "failureMessages": [],
+          "fullName": "Alert.vue should be dismissible",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should be dismissible"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175350856,
+        "start": 1609175350224
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\composables\\UserService.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "useUserService"
+          ],
+          "duration": 45,
+          "failureMessages": [],
+          "fullName": "useUserService should register a user",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should register a user"
+        },
+        {
+          "ancestorTitles": [
+            "useUserService"
+          ],
+          "duration": 1,
+          "failureMessages": [],
+          "fullName": "useUserService should authenticate a user",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should authenticate a user"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175351293,
+        "start": 1609175350937
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\composables\\RaceService.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "useRaceService"
+          ],
+          "duration": 3,
+          "failureMessages": [],
+          "fullName": "useRaceService should list races",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should list races"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 7,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175351632,
+        "start": 1609175344807
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Register.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Register.vue"
+          ],
+          "duration": 70,
+          "failureMessages": [],
+          "fullName": "Register.vue should display a form",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display a form"
+        },
+        {
+          "ancestorTitles": [
+            "Register.vue"
+          ],
+          "duration": 57,
+          "failureMessages": [],
+          "fullName": "Register.vue should display errors for login",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display errors for login"
+        },
+        {
+          "ancestorTitles": [
+            "Register.vue"
+          ],
+          "duration": 146,
+          "failureMessages": [],
+          "fullName": "Register.vue should display errors for password",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display errors for password"
+        },
+        {
+          "ancestorTitles": [
+            "Register.vue"
+          ],
+          "duration": 81,
+          "failureMessages": [],
+          "fullName": "Register.vue should display errors for password confirmation",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display errors for password confirmation"
+        },
+        {
+          "ancestorTitles": [
+            "Register.vue"
+          ],
+          "duration": 43,
+          "failureMessages": [],
+          "fullName": "Register.vue should display errors for birthYear",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display errors for birthYear"
+        },
+        {
+          "ancestorTitles": [
+            "Register.vue"
+          ],
+          "duration": 81,
+          "failureMessages": [],
+          "fullName": "Register.vue should call the register function on submit",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should call the register function on submit"
+        },
+        {
+          "ancestorTitles": [
+            "Register.vue"
+          ],
+          "duration": 94,
+          "failureMessages": [],
+          "fullName": "Register.vue should display an alert on submission failure",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display an alert on submission failure"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 3,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175351714,
+        "start": 1609175351331
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Home.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Home.vue"
+          ],
+          "duration": 74,
+          "failureMessages": [],
+          "fullName": "Home.vue should display every race name in a title",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display every race name in a title"
+        },
+        {
+          "ancestorTitles": [
+            "Home.vue"
+          ],
+          "duration": 3,
+          "failureMessages": [],
+          "fullName": "Home.vue display a link to go the login",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "display a link to go the login"
+        },
+        {
+          "ancestorTitles": [
+            "Home.vue"
+          ],
+          "duration": 4,
+          "failureMessages": [],
+          "fullName": "Home.vue display a link to go the register page",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "display a link to go the register page"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 5,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175352576,
+        "start": 1609175351987
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Navbar.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Navbar.vue"
+          ],
+          "duration": 46,
+          "failureMessages": [],
+          "fullName": "Navbar.vue should have a `navbarCollapsed` field",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should have a `navbarCollapsed` field"
+        },
+        {
+          "ancestorTitles": [
+            "Navbar.vue"
+          ],
+          "duration": 4,
+          "failureMessages": [],
+          "fullName": "Navbar.vue should have a `toggleNavbar` function",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should have a `toggleNavbar` function"
+        },
+        {
+          "ancestorTitles": [
+            "Navbar.vue"
+          ],
+          "duration": 14,
+          "failureMessages": [],
+          "fullName": "Navbar.vue should toggle the class on click",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should toggle the class on click"
+        },
+        {
+          "ancestorTitles": [
+            "Navbar.vue"
+          ],
+          "duration": 3,
+          "failureMessages": [],
+          "fullName": "Navbar.vue should display a link to the home page",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display a link to the home page"
+        },
+        {
+          "ancestorTitles": [
+            "Navbar.vue"
+          ],
+          "duration": 5,
+          "failureMessages": [],
+          "fullName": "Navbar.vue should display a link to the races page",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should display a link to the races page"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    },
+    {
+      "failureMessage": null,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "perfStats": {
+        "end": 1609175353173,
+        "start": 1609175348935
+      },
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\validators.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "isOldEnough"
+          ],
+          "duration": 2,
+          "failureMessages": [],
+          "fullName": "isOldEnough should validate if a user is old enough",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "should validate if a user is old enough"
+        }
+      ],
+      "skipped": false,
+      "leaks": false
+    }
+  ],
+  "wasInterrupted": false,
+  "coverageMap": {
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\App.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\App.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 15,
+            "column": 0
+          },
+          "end": {
+            "line": 15,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 16,
+            "column": 0
+          },
+          "end": {
+            "line": 16,
+            "column": null
+          }
+        },
+        "2": {
+          "start": {
+            "line": 17,
+            "column": 0
+          },
+          "end": {
+            "line": 17,
+            "column": null
+          }
+        },
+        "3": {
+          "start": {
+            "line": 19,
+            "column": 0
+          },
+          "end": {
+            "line": 19,
+            "column": 15
+          }
+        },
+        "4": {
+          "start": {
+            "line": 28,
+            "column": 25
+          },
+          "end": {
+            "line": 28,
+            "column": 44
+          }
+        },
+        "5": {
+          "start": {
+            "line": 30,
+            "column": 4
+          },
+          "end": {
+            "line": 30,
+            "column": 20
+          }
+        },
+        "6": {
+          "start": {
+            "line": 32,
+            "column": 6
+          },
+          "end": {
+            "line": 32,
+            "column": 18
+          }
+        },
+        "7": {
+          "start": {
+            "line": 33,
+            "column": 6
+          },
+          "end": {
+            "line": 33,
+            "column": 13
+          }
+        },
+        "8": {
+          "start": {
+            "line": 36,
+            "column": 4
+          },
+          "end": {
+            "line": 36,
+            "column": 11
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 27,
+              "column": 2
+            },
+            "end": {
+              "line": 27,
+              "column": 7
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 2
+            },
+            "end": {
+              "line": 39,
+              "column": null
+            }
+          }
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 30,
+              "column": 20
+            },
+            "end": {
+              "line": 30,
+              "column": null
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 30,
+              "column": 20
+            },
+            "end": {
+              "line": 34,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 3,
+        "5": 3,
+        "6": 2,
+        "7": 2,
+        "8": 3
+      },
+      "f": {
+        "0": 3,
+        "1": 2
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Races.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Races.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 11,
+            "column": 0
+          },
+          "end": {
+            "line": 11,
+            "column": null
+          }
+        },
+        "2": {
+          "start": {
+            "line": 13,
+            "column": 0
+          },
+          "end": {
+            "line": 13,
+            "column": null
+          }
+        },
+        "3": {
+          "start": {
+            "line": 15,
+            "column": 0
+          },
+          "end": {
+            "line": 15,
+            "column": 15
+          }
+        },
+        "4": {
+          "start": {
+            "line": 23,
+            "column": 10
+          },
+          "end": {
+            "line": 23,
+            "column": 22
+          }
+        },
+        "5": {
+          "start": {
+            "line": 24,
+            "column": 10
+          },
+          "end": {
+            "line": 24,
+            "column": 15
+          }
+        },
+        "6": {
+          "start": {
+            "line": 26,
+            "column": 4
+          },
+          "end": {
+            "line": 26,
+            "column": 10
+          }
+        },
+        "7": {
+          "start": {
+            "line": 26,
+            "column": 18
+          },
+          "end": {
+            "line": 26,
+            "column": 24
+          }
+        },
+        "8": {
+          "start": {
+            "line": 28,
+            "column": 4
+          },
+          "end": {
+            "line": 28,
+            "column": 11
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 22,
+              "column": 2
+            },
+            "end": {
+              "line": 22,
+              "column": 8
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 2
+            },
+            "end": {
+              "line": 31,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 1,
+        "6": 2,
+        "7": 1,
+        "8": 1
+      },
+      "f": {
+        "0": 1
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Race.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Race.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 15,
+            "column": 0
+          },
+          "end": {
+            "line": 15,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 17,
+            "column": 0
+          },
+          "end": {
+            "line": 17,
+            "column": null
+          }
+        },
+        "2": {
+          "start": {
+            "line": 18,
+            "column": 0
+          },
+          "end": {
+            "line": 18,
+            "column": null
+          }
+        },
+        "3": {
+          "start": {
+            "line": 20,
+            "column": 0
+          },
+          "end": {
+            "line": 20,
+            "column": 15
+          }
+        },
+        "4": {
+          "start": {
+            "line": 37,
+            "column": 25
+          },
+          "end": {
+            "line": 37,
+            "column": 34
+          }
+        },
+        "5": {
+          "start": {
+            "line": 37,
+            "column": 40
+          },
+          "end": {
+            "line": 37,
+            "column": 48
+          }
+        },
+        "6": {
+          "start": {
+            "line": 39,
+            "column": 4
+          },
+          "end": {
+            "line": 39,
+            "column": 16
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 34,
+              "column": 7
+            },
+            "end": {
+              "line": 34,
+              "column": 8
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 34,
+              "column": 13
+            },
+            "end": {
+              "line": 40,
+              "column": null
+            }
+          }
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 37,
+              "column": 34
+            },
+            "end": {
+              "line": 37,
+              "column": 40
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 37,
+              "column": 34
+            },
+            "end": {
+              "line": 37,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 3,
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3
+      },
+      "f": {
+        "0": 3,
+        "1": 3
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Pony.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Pony.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": null
+          }
+        },
+        "2": {
+          "start": {
+            "line": 14,
+            "column": 0
+          },
+          "end": {
+            "line": 14,
+            "column": 15
+          }
+        },
+        "3": {
+          "start": {
+            "line": 26,
+            "column": 21
+          },
+          "end": {
+            "line": 26,
+            "column": 23
+          }
+        },
+        "4": {
+          "start": {
+            "line": 27,
+            "column": 25
+          },
+          "end": {
+            "line": 27,
+            "column": 34
+          }
+        },
+        "5": {
+          "start": {
+            "line": 27,
+            "column": 40
+          },
+          "end": {
+            "line": 27,
+            "column": 56
+          }
+        },
+        "6": {
+          "start": {
+            "line": 30,
+            "column": 6
+          },
+          "end": {
+            "line": 30,
+            "column": 10
+          }
+        },
+        "7": {
+          "start": {
+            "line": 33,
+            "column": 4
+          },
+          "end": {
+            "line": 33,
+            "column": 16
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 26,
+              "column": 7
+            },
+            "end": {
+              "line": 26,
+              "column": 8
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 26,
+              "column": 23
+            },
+            "end": {
+              "line": 34,
+              "column": null
+            }
+          }
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 27,
+              "column": 34
+            },
+            "end": {
+              "line": 27,
+              "column": 40
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 34
+            },
+            "end": {
+              "line": 27,
+              "column": null
+            }
+          }
+        },
+        "2": {
+          "name": "clicked",
+          "decl": {
+            "start": {
+              "line": 29,
+              "column": 13
+            },
+            "end": {
+              "line": 29,
+              "column": 20
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 29,
+              "column": 20
+            },
+            "end": {
+              "line": 31,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 4,
+        "1": 4,
+        "2": 4,
+        "3": 7,
+        "4": 7,
+        "5": 7,
+        "6": 1,
+        "7": 7
+      },
+      "f": {
+        "0": 7,
+        "1": 7,
+        "2": 1
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\PonyImageUrl.ts": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\PonyImageUrl.ts",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 9,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 48
+          }
+        },
+        "1": {
+          "start": {
+            "line": 12,
+            "column": 2
+          },
+          "end": {
+            "line": 12,
+            "column": 64
+          }
+        },
+        "2": {
+          "start": {
+            "line": 11,
+            "column": 0
+          },
+          "end": {
+            "line": 11,
+            "column": 16
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "getPonyImageUrl",
+          "decl": {
+            "start": {
+              "line": 11,
+              "column": 16
+            },
+            "end": {
+              "line": 11,
+              "column": 31
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 47
+            },
+            "end": {
+              "line": 13,
+              "column": 1
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 4,
+        "1": 7,
+        "2": 4
+      },
+      "f": {
+        "0": 7
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\statics.ts": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\statics.ts",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 8,
+            "column": 13
+          },
+          "end": {
+            "line": 8,
+            "column": 40
+          }
+        }
+      },
+      "fnMap": {},
+      "branchMap": {},
+      "s": {
+        "0": 4
+      },
+      "f": {},
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\FromNow.ts": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\FromNow.ts",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 8,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 63
+          }
+        },
+        "1": {
+          "start": {
+            "line": 11,
+            "column": 21
+          },
+          "end": {
+            "line": 11,
+            "column": 41
+          }
+        },
+        "2": {
+          "start": {
+            "line": 12,
+            "column": 2
+          },
+          "end": {
+            "line": 12,
+            "column": 62
+          }
+        },
+        "3": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 24
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "fromNow",
+          "decl": {
+            "start": {
+              "line": 10,
+              "column": 24
+            },
+            "end": {
+              "line": 10,
+              "column": 31
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 50
+            },
+            "end": {
+              "line": 13,
+              "column": 1
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 4,
+        "1": 4,
+        "2": 4,
+        "3": 4
+      },
+      "f": {
+        "0": 4
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RaceService.ts": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RaceService.ts",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 9,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 26
+          }
+        },
+        "1": {
+          "start": {
+            "line": 12,
+            "column": 2
+          },
+          "end": {
+            "line": 19,
+            "column": 4
+          }
+        },
+        "2": {
+          "start": {
+            "line": 14,
+            "column": 23
+          },
+          "end": {
+            "line": 16,
+            "column": null
+          }
+        },
+        "3": {
+          "start": {
+            "line": 14,
+            "column": 12
+          },
+          "end": {
+            "line": 16,
+            "column": null
+          }
+        },
+        "4": {
+          "start": {
+            "line": 17,
+            "column": 6
+          },
+          "end": {
+            "line": 17,
+            "column": 44
+          }
+        },
+        "5": {
+          "start": {
+            "line": 11,
+            "column": 0
+          },
+          "end": {
+            "line": 11,
+            "column": 16
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "useRaceService",
+          "decl": {
+            "start": {
+              "line": 11,
+              "column": 16
+            },
+            "end": {
+              "line": 11,
+              "column": 30
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 30
+            },
+            "end": {
+              "line": 20,
+              "column": 1
+            }
+          }
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 13,
+              "column": 4
+            },
+            "end": {
+              "line": 13,
+              "column": 10
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 4
+            },
+            "end": {
+              "line": 18,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 23
+            },
+            "end": {
+              "line": 16,
+              "column": null
+            }
+          },
+          "type": "switch",
+          "locations": [
+            {
+              "start": {
+                "line": 14,
+                "column": 23
+              },
+              "end": {
+                "line": 16,
+                "column": null
+              }
+            }
+          ]
+        }
+      },
+      "s": {
+        "0": 2,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      },
+      "f": {
+        "0": 1,
+        "1": 1
+      },
+      "b": {
+        "0": [
+          1
+        ]
+      }
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Navbar.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Navbar.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 19,
+            "column": 0
+          },
+          "end": {
+            "line": 19,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 21,
+            "column": 0
+          },
+          "end": {
+            "line": 21,
+            "column": 15
+          }
+        },
+        "2": {
+          "start": {
+            "line": 25,
+            "column": 28
+          },
+          "end": {
+            "line": 25,
+            "column": 32
+          }
+        },
+        "3": {
+          "start": {
+            "line": 28,
+            "column": 6
+          },
+          "end": {
+            "line": 28,
+            "column": 21
+          }
+        },
+        "4": {
+          "start": {
+            "line": 31,
+            "column": 4
+          },
+          "end": {
+            "line": 31,
+            "column": 11
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 24,
+              "column": 7
+            },
+            "end": {
+              "line": 24,
+              "column": null
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 7
+            },
+            "end": {
+              "line": 35,
+              "column": null
+            }
+          }
+        },
+        "1": {
+          "name": "toggleNavbar",
+          "decl": {
+            "start": {
+              "line": 27,
+              "column": 13
+            },
+            "end": {
+              "line": 27,
+              "column": 25
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 25
+            },
+            "end": {
+              "line": 29,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 2,
+        "1": 2,
+        "2": 8,
+        "3": 3,
+        "4": 8
+      },
+      "f": {
+        "0": 8,
+        "1": 3
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Alert.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Alert.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 14,
+            "column": 0
+          },
+          "end": {
+            "line": 14,
+            "column": 15
+          }
+        },
+        "2": {
+          "start": {
+            "line": 30,
+            "column": 21
+          },
+          "end": {
+            "line": 30,
+            "column": 23
+          }
+        },
+        "3": {
+          "start": {
+            "line": 31,
+            "column": 26
+          },
+          "end": {
+            "line": 31,
+            "column": 35
+          }
+        },
+        "4": {
+          "start": {
+            "line": 31,
+            "column": 41
+          },
+          "end": {
+            "line": 31,
+            "column": 46
+          }
+        },
+        "5": {
+          "start": {
+            "line": 33,
+            "column": 23
+          },
+          "end": {
+            "line": 33,
+            "column": 32
+          }
+        },
+        "6": {
+          "start": {
+            "line": 33,
+            "column": 38
+          },
+          "end": {
+            "line": 33,
+            "column": 53
+          }
+        },
+        "7": {
+          "start": {
+            "line": 36,
+            "column": 6
+          },
+          "end": {
+            "line": 36,
+            "column": 10
+          }
+        },
+        "8": {
+          "start": {
+            "line": 39,
+            "column": 4
+          },
+          "end": {
+            "line": 39,
+            "column": 11
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 30,
+              "column": 7
+            },
+            "end": {
+              "line": 30,
+              "column": 8
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 30,
+              "column": 23
+            },
+            "end": {
+              "line": 40,
+              "column": null
+            }
+          }
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 31,
+              "column": 35
+            },
+            "end": {
+              "line": 31,
+              "column": 41
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 35
+            },
+            "end": {
+              "line": 31,
+              "column": null
+            }
+          }
+        },
+        "2": {
+          "name": "(anonymous_2)",
+          "decl": {
+            "start": {
+              "line": 33,
+              "column": 32
+            },
+            "end": {
+              "line": 33,
+              "column": 38
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 32
+            },
+            "end": {
+              "line": 33,
+              "column": null
+            }
+          }
+        },
+        "3": {
+          "name": "dismiss",
+          "decl": {
+            "start": {
+              "line": 35,
+              "column": 13
+            },
+            "end": {
+              "line": 35,
+              "column": 20
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 20
+            },
+            "end": {
+              "line": 37,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 4,
+        "1": 4,
+        "2": 5,
+        "3": 5,
+        "4": 6,
+        "5": 5,
+        "6": 6,
+        "7": 3,
+        "8": 5
+      },
+      "f": {
+        "0": 5,
+        "1": 6,
+        "2": 6,
+        "3": 3
+      },
+      "b": {}
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Login.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Login.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 34,
+            "column": 0
+          },
+          "end": {
+            "line": 34,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 35,
+            "column": 0
+          },
+          "end": {
+            "line": 35,
+            "column": null
+          }
+        },
+        "2": {
+          "start": {
+            "line": 36,
+            "column": 0
+          },
+          "end": {
+            "line": 36,
+            "column": null
+          }
+        },
+        "3": {
+          "start": {
+            "line": 37,
+            "column": 0
+          },
+          "end": {
+            "line": 37,
+            "column": null
+          }
+        },
+        "4": {
+          "start": {
+            "line": 40,
+            "column": 0
+          },
+          "end": {
+            "line": 40,
+            "column": null
+          }
+        },
+        "5": {
+          "start": {
+            "line": 42,
+            "column": 0
+          },
+          "end": {
+            "line": 42,
+            "column": 15
+          }
+        },
+        "6": {
+          "start": {
+            "line": 52,
+            "column": 24
+          },
+          "end": {
+            "line": 52,
+            "column": null
+          }
+        },
+        "7": {
+          "start": {
+            "line": 53,
+            "column": 26
+          },
+          "end": {
+            "line": 53,
+            "column": 56
+          }
+        },
+        "8": {
+          "start": {
+            "line": 54,
+            "column": 26
+          },
+          "end": {
+            "line": 54,
+            "column": null
+          }
+        },
+        "9": {
+          "start": {
+            "line": 55,
+            "column": 33
+          },
+          "end": {
+            "line": 55,
+            "column": 46
+          }
+        },
+        "10": {
+          "start": {
+            "line": 59,
+            "column": 8
+          },
+          "end": {
+            "line": 59,
+            "column": 22
+          }
+        },
+        "11": {
+          "start": {
+            "line": 59,
+            "column": 30
+          },
+          "end": {
+            "line": 59,
+            "column": 36
+          }
+        },
+        "12": {
+          "start": {
+            "line": 60,
+            "column": 12
+          },
+          "end": {
+            "line": 60,
+            "column": 25
+          }
+        },
+        "13": {
+          "start": {
+            "line": 61,
+            "column": 10
+          },
+          "end": {
+            "line": 61,
+            "column": 16
+          }
+        },
+        "14": {
+          "start": {
+            "line": 64,
+            "column": 8
+          },
+          "end": {
+            "line": 64,
+            "column": 28
+          }
+        },
+        "15": {
+          "start": {
+            "line": 68,
+            "column": 4
+          },
+          "end": {
+            "line": 68,
+            "column": 11
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 51,
+              "column": 2
+            },
+            "end": {
+              "line": 51,
+              "column": 7
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 51,
+              "column": 2
+            },
+            "end": {
+              "line": 72,
+              "column": null
+            }
+          }
+        },
+        "1": {
+          "name": "authenticate",
+          "decl": {
+            "start": {
+              "line": 57,
+              "column": 19
+            },
+            "end": {
+              "line": 57,
+              "column": 32
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 57,
+              "column": 53
+            },
+            "end": {
+              "line": 66,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": {
+              "line": 60,
+              "column": 12
+            },
+            "end": {
+              "line": 60,
+              "column": 25
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 60,
+                "column": 12
+              },
+              "end": {
+                "line": 60,
+                "column": 25
+              }
+            },
+            {
+              "start": {
+                "line": 60,
+                "column": 12
+              },
+              "end": {
+                "line": 60,
+                "column": 25
+              }
+            }
+          ]
+        }
+      },
+      "s": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 5,
+        "7": 5,
+        "8": 5,
+        "9": 5,
+        "10": 4,
+        "11": 2,
+        "12": 1,
+        "13": 2,
+        "14": 1,
+        "15": 5
+      },
+      "f": {
+        "0": 5,
+        "1": 2
+      },
+      "b": {
+        "0": [
+          0,
+          1
+        ]
+      }
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RouterService.ts": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RouterService.ts",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 8,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 39
+          }
+        },
+        "1": {
+          "start": {
+            "line": 11,
+            "column": 17
+          },
+          "end": {
+            "line": 11,
+            "column": 28
+          }
+        },
+        "2": {
+          "start": {
+            "line": 13,
+            "column": 2
+          },
+          "end": {
+            "line": 17,
+            "column": 4
+          }
+        },
+        "3": {
+          "start": {
+            "line": 15,
+            "column": 6
+          },
+          "end": {
+            "line": 15,
+            "column": 40
+          }
+        },
+        "4": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 16
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "useRouterService",
+          "decl": {
+            "start": {
+              "line": 10,
+              "column": 16
+            },
+            "end": {
+              "line": 10,
+              "column": 32
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 32
+            },
+            "end": {
+              "line": 18,
+              "column": 1
+            }
+          }
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 14,
+              "column": 4
+            },
+            "end": {
+              "line": 14,
+              "column": 10
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 27
+            },
+            "end": {
+              "line": 16,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 6
+            },
+            "end": {
+              "line": 15,
+              "column": 40
+            }
+          },
+          "type": "switch",
+          "locations": [
+            {
+              "start": {
+                "line": 15,
+                "column": 6
+              },
+              "end": {
+                "line": 15,
+                "column": 40
+              }
+            }
+          ]
+        }
+      },
+      "s": {
+        "0": 2,
+        "1": 12,
+        "2": 12,
+        "3": 4,
+        "4": 2
+      },
+      "f": {
+        "0": 12,
+        "1": 2
+      },
+      "b": {
+        "0": [
+          2
+        ]
+      }
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\UserService.ts": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\UserService.ts",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 26
+          }
+        },
+        "1": {
+          "start": {
+            "line": 13,
+            "column": 2
+          },
+          "end": {
+            "line": 23,
+            "column": 4
+          }
+        },
+        "2": {
+          "start": {
+            "line": 15,
+            "column": 23
+          },
+          "end": {
+            "line": 15,
+            "column": null
+          }
+        },
+        "3": {
+          "start": {
+            "line": 15,
+            "column": 12
+          },
+          "end": {
+            "line": 15,
+            "column": null
+          }
+        },
+        "4": {
+          "start": {
+            "line": 16,
+            "column": 6
+          },
+          "end": {
+            "line": 16,
+            "column": 44
+          }
+        },
+        "5": {
+          "start": {
+            "line": 20,
+            "column": 23
+          },
+          "end": {
+            "line": 20,
+            "column": null
+          }
+        },
+        "6": {
+          "start": {
+            "line": 20,
+            "column": 12
+          },
+          "end": {
+            "line": 20,
+            "column": null
+          }
+        },
+        "7": {
+          "start": {
+            "line": 21,
+            "column": 6
+          },
+          "end": {
+            "line": 21,
+            "column": 44
+          }
+        },
+        "8": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 16
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "useUserService",
+          "decl": {
+            "start": {
+              "line": 12,
+              "column": 16
+            },
+            "end": {
+              "line": 12,
+              "column": 30
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 30
+            },
+            "end": {
+              "line": 24,
+              "column": 1
+            }
+          }
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 14,
+              "column": 4
+            },
+            "end": {
+              "line": 14,
+              "column": 10
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 39
+            },
+            "end": {
+              "line": 17,
+              "column": null
+            }
+          }
+        },
+        "2": {
+          "name": "(anonymous_4)",
+          "decl": {
+            "start": {
+              "line": 19,
+              "column": 4
+            },
+            "end": {
+              "line": 19,
+              "column": 10
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 49
+            },
+            "end": {
+              "line": 22,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 23
+            },
+            "end": {
+              "line": 15,
+              "column": null
+            }
+          },
+          "type": "switch",
+          "locations": [
+            {
+              "start": {
+                "line": 15,
+                "column": 23
+              },
+              "end": {
+                "line": 15,
+                "column": null
+              }
+            }
+          ]
+        },
+        "1": {
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 23
+            },
+            "end": {
+              "line": 20,
+              "column": null
+            }
+          },
+          "type": "switch",
+          "locations": [
+            {
+              "start": {
+                "line": 20,
+                "column": 23
+              },
+              "end": {
+                "line": 20,
+                "column": null
+              }
+            }
+          ]
+        }
+      },
+      "s": {
+        "0": 1,
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1
+      },
+      "f": {
+        "0": 2,
+        "1": 1,
+        "2": 1
+      },
+      "b": {
+        "0": [
+          1
+        ],
+        "1": [
+          1
+        ]
+      }
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Register.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Register.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 58,
+            "column": 0
+          },
+          "end": {
+            "line": 58,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 60,
+            "column": 0
+          },
+          "end": {
+            "line": 60,
+            "column": null
+          }
+        },
+        "2": {
+          "start": {
+            "line": 62,
+            "column": 0
+          },
+          "end": {
+            "line": 62,
+            "column": null
+          }
+        },
+        "3": {
+          "start": {
+            "line": 63,
+            "column": 0
+          },
+          "end": {
+            "line": 63,
+            "column": null
+          }
+        },
+        "4": {
+          "start": {
+            "line": 64,
+            "column": 0
+          },
+          "end": {
+            "line": 64,
+            "column": null
+          }
+        },
+        "5": {
+          "start": {
+            "line": 66,
+            "column": 0
+          },
+          "end": {
+            "line": 66,
+            "column": 15
+          }
+        },
+        "6": {
+          "start": {
+            "line": 76,
+            "column": 25
+          },
+          "end": {
+            "line": 76,
+            "column": 27
+          }
+        },
+        "7": {
+          "start": {
+            "line": 77,
+            "column": 24
+          },
+          "end": {
+            "line": 77,
+            "column": null
+          }
+        },
+        "8": {
+          "start": {
+            "line": 78,
+            "column": 24
+          },
+          "end": {
+            "line": 78,
+            "column": 54
+          }
+        },
+        "9": {
+          "start": {
+            "line": 79,
+            "column": 26
+          },
+          "end": {
+            "line": 79,
+            "column": null
+          }
+        },
+        "10": {
+          "start": {
+            "line": 80,
+            "column": 31
+          },
+          "end": {
+            "line": 80,
+            "column": 44
+          }
+        },
+        "11": {
+          "start": {
+            "line": 84,
+            "column": 8
+          },
+          "end": {
+            "line": 84,
+            "column": 20
+          }
+        },
+        "12": {
+          "start": {
+            "line": 84,
+            "column": 28
+          },
+          "end": {
+            "line": 84,
+            "column": 34
+          }
+        },
+        "13": {
+          "start": {
+            "line": 85,
+            "column": 12
+          },
+          "end": {
+            "line": 85,
+            "column": 23
+          }
+        },
+        "14": {
+          "start": {
+            "line": 86,
+            "column": 10
+          },
+          "end": {
+            "line": 86,
+            "column": 16
+          }
+        },
+        "15": {
+          "start": {
+            "line": 89,
+            "column": 8
+          },
+          "end": {
+            "line": 89,
+            "column": 26
+          }
+        },
+        "16": {
+          "start": {
+            "line": 93,
+            "column": 4
+          },
+          "end": {
+            "line": 93,
+            "column": 11
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 75,
+              "column": 2
+            },
+            "end": {
+              "line": 75,
+              "column": 7
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 75,
+              "column": 2
+            },
+            "end": {
+              "line": 98,
+              "column": null
+            }
+          }
+        },
+        "1": {
+          "name": "register",
+          "decl": {
+            "start": {
+              "line": 82,
+              "column": 19
+            },
+            "end": {
+              "line": 82,
+              "column": 28
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 82,
+              "column": 51
+            },
+            "end": {
+              "line": 91,
+              "column": null
+            }
+          }
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": {
+              "line": 85,
+              "column": 12
+            },
+            "end": {
+              "line": 85,
+              "column": 23
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 85,
+                "column": 12
+              },
+              "end": {
+                "line": 85,
+                "column": 23
+              }
+            },
+            {
+              "start": {
+                "line": 85,
+                "column": 12
+              },
+              "end": {
+                "line": 85,
+                "column": 23
+              }
+            }
+          ]
+        }
+      },
+      "s": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 7,
+        "7": 7,
+        "8": 7,
+        "9": 7,
+        "10": 7,
+        "11": 4,
+        "12": 2,
+        "13": 1,
+        "14": 2,
+        "15": 1,
+        "16": 7
+      },
+      "f": {
+        "0": 7,
+        "1": 2
+      },
+      "b": {
+        "0": [
+          0,
+          1
+        ]
+      }
+    },
+    "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Home.vue": {
+      "path": "D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Home.vue",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 17,
+            "column": 0
+          },
+          "end": {
+            "line": 17,
+            "column": null
+          }
+        },
+        "1": {
+          "start": {
+            "line": 19,
+            "column": 0
+          },
+          "end": {
+            "line": 19,
+            "column": 15
+          }
+        }
+      },
+      "fnMap": {},
+      "branchMap": {},
+      "s": {
+        "0": 1,
+        "1": 1
+      },
+      "f": {},
+      "b": {}
+    }
+  }
+}

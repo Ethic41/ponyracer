@@ -1,0 +1,3240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jest-stare!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/diff2html.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jest-stare.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/diff2html.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/view.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" id="navbar-title" href="#">jest-stare</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="coverage-link" class="nav-link disabled" href="#">Coverage</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-passoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-passoff-switch">
+                                <span class="pass off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-failoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-failoff-switch">
+                                <span class="fail off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-pendingoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-pendingoff-switch">
+                                <span class="pending off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-todooff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-todooff-switch">
+                                <span class="todo off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Search</button>
+                </form> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+        <h1 class="mt-5"></h1>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <canvas id="test-suites-canvas" width="100" height="100"></canvas>
+                <h2>Test Suites</h2>
+                <div class="list-group">
+                    <p id="test-suites-results" class="list-group-item list-group-item-action">13 passed, 13 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <canvas id="tests-canvas" width="100" height="100"></canvas>
+                <h2>Tests</h2>
+                <div class="list-group">
+                    <p id="tests-results" class="list-group-item list-group-item-action">35 passed, 35 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="snapshots-group">
+                <canvas id="snapshots-canvas" width="100" height="100"></canvas>
+                <h2>Snapshots</h2>
+                <div class="list-group">
+                    <p id="snapshots-results" class="list-group-item list-group-item-action">0 passed, 0 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+
+        <div id="loading-info" class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100" style="width: 100%"></div>
+        </div>
+
+        <div class="d-none" id="test-summary"></div>
+        <div class="d-none" id="test-config">{
+  &quot;additionalResultsProcessors&quot;: [],
+  &quot;resultDir&quot;: &quot;results&#x2F;&quot;,
+  &quot;resultJson&quot;: &quot;jest-results.json&quot;,
+  &quot;coverageLink&quot;: &quot;..&#x2F;coverage&#x2F;lcov-report&#x2F;index.html&quot;,
+  &quot;resultHtml&quot;: &quot;index.html&quot;
+}</div>
+        <div id="accordion">
+            <div class="d-none" id="test-results">{
+  &quot;numFailedTestSuites&quot;: 0,
+  &quot;numFailedTests&quot;: 0,
+  &quot;numPassedTestSuites&quot;: 13,
+  &quot;numPassedTests&quot;: 35,
+  &quot;numPendingTestSuites&quot;: 0,
+  &quot;numPendingTests&quot;: 0,
+  &quot;numRuntimeErrorTestSuites&quot;: 0,
+  &quot;numTodoTests&quot;: 0,
+  &quot;numTotalTestSuites&quot;: 13,
+  &quot;numTotalTests&quot;: 35,
+  &quot;openHandles&quot;: [],
+  &quot;snapshot&quot;: {
+    &quot;added&quot;: 0,
+    &quot;didUpdate&quot;: false,
+    &quot;failure&quot;: false,
+    &quot;filesAdded&quot;: 0,
+    &quot;filesRemoved&quot;: 0,
+    &quot;filesRemovedList&quot;: [],
+    &quot;filesUnmatched&quot;: 0,
+    &quot;filesUpdated&quot;: 0,
+    &quot;matched&quot;: 0,
+    &quot;total&quot;: 0,
+    &quot;unchecked&quot;: 0,
+    &quot;uncheckedKeysByFile&quot;: [],
+    &quot;unmatched&quot;: 0,
+    &quot;updated&quot;: 0
+  },
+  &quot;startTime&quot;: 1609175343405,
+  &quot;success&quot;: false,
+  &quot;testResults&quot;: [
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 3,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175347194,
+        &quot;start&quot;: 1609175344789
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\App.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;App.vue&quot;
+          ],
+          &quot;duration&quot;: 34,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;App.vue renders the navbar&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;renders the navbar&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;App.vue&quot;
+          ],
+          &quot;duration&quot;: 32,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;App.vue renders the router view inside a Suspense component&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;renders the router view inside a Suspense component&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;App.vue&quot;
+          ],
+          &quot;duration&quot;: 11,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;App.vue renders an error if router view does not load&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;renders an error if router view does not load&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 1,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175347528,
+        &quot;start&quot;: 1609175347248
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\utils\\FromNow.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;FromNow&quot;
+          ],
+          &quot;duration&quot;: 3,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;FromNow should transform a date&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should transform a date&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 1,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175347970,
+        &quot;start&quot;: 1609175347564
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Races.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Races.vue&quot;
+          ],
+          &quot;duration&quot;: 33,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Races.vue should display every race name in a title&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display every race name in a title&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 1,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175348495,
+        &quot;start&quot;: 1609175348015
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Race.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Race.vue&quot;
+          ],
+          &quot;duration&quot;: 36,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Race.vue should display a race name and its ponies&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display a race name and its ponies&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 2,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175348898,
+        &quot;start&quot;: 1609175348534
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Pony.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Pony.vue&quot;
+          ],
+          &quot;duration&quot;: 9,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Pony.vue should display an image and a legend&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display an image and a legend&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Pony.vue&quot;
+          ],
+          &quot;duration&quot;: 5,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Pony.vue should emit an event on click&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should emit an event on click&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 5,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175349541,
+        &quot;start&quot;: 1609175344767
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Login.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Login.vue&quot;
+          ],
+          &quot;duration&quot;: 110,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Login.vue should display a form&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display a form&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Login.vue&quot;
+          ],
+          &quot;duration&quot;: 44,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Login.vue should display errors for login&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display errors for login&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Login.vue&quot;
+          ],
+          &quot;duration&quot;: 23,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Login.vue should display errors for password&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display errors for password&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Login.vue&quot;
+          ],
+          &quot;duration&quot;: 56,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Login.vue should call the authenticate function on submit&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should call the authenticate function on submit&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Login.vue&quot;
+          ],
+          &quot;duration&quot;: 90,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Login.vue should display an alert on submission failure&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display an alert on submission failure&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 3,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175350187,
+        &quot;start&quot;: 1609175349588
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Alert.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Alert.vue&quot;
+          ],
+          &quot;duration&quot;: 20,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Alert.vue should display the alert content&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display the alert content&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Alert.vue&quot;
+          ],
+          &quot;duration&quot;: 19,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Alert.vue should have the correct CSS class&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should have the correct CSS class&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Alert.vue&quot;
+          ],
+          &quot;duration&quot;: 21,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Alert.vue should be dismissible&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should be dismissible&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 2,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175350856,
+        &quot;start&quot;: 1609175350224
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\composables\\UserService.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;useUserService&quot;
+          ],
+          &quot;duration&quot;: 45,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;useUserService should register a user&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should register a user&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;useUserService&quot;
+          ],
+          &quot;duration&quot;: 1,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;useUserService should authenticate a user&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should authenticate a user&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 1,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175351293,
+        &quot;start&quot;: 1609175350937
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\composables\\RaceService.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;useRaceService&quot;
+          ],
+          &quot;duration&quot;: 3,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;useRaceService should list races&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should list races&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 7,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175351632,
+        &quot;start&quot;: 1609175344807
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Register.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Register.vue&quot;
+          ],
+          &quot;duration&quot;: 70,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Register.vue should display a form&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display a form&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Register.vue&quot;
+          ],
+          &quot;duration&quot;: 57,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Register.vue should display errors for login&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display errors for login&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Register.vue&quot;
+          ],
+          &quot;duration&quot;: 146,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Register.vue should display errors for password&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display errors for password&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Register.vue&quot;
+          ],
+          &quot;duration&quot;: 81,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Register.vue should display errors for password confirmation&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display errors for password confirmation&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Register.vue&quot;
+          ],
+          &quot;duration&quot;: 43,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Register.vue should display errors for birthYear&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display errors for birthYear&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Register.vue&quot;
+          ],
+          &quot;duration&quot;: 81,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Register.vue should call the register function on submit&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should call the register function on submit&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Register.vue&quot;
+          ],
+          &quot;duration&quot;: 94,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Register.vue should display an alert on submission failure&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display an alert on submission failure&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 3,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175351714,
+        &quot;start&quot;: 1609175351331
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\views\\Home.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home.vue&quot;
+          ],
+          &quot;duration&quot;: 74,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home.vue should display every race name in a title&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display every race name in a title&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home.vue&quot;
+          ],
+          &quot;duration&quot;: 3,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home.vue display a link to go the login&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;display a link to go the login&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home.vue&quot;
+          ],
+          &quot;duration&quot;: 4,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home.vue display a link to go the register page&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;display a link to go the register page&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 5,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175352576,
+        &quot;start&quot;: 1609175351987
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\components\\Navbar.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Navbar.vue&quot;
+          ],
+          &quot;duration&quot;: 46,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Navbar.vue should have a &#x60;navbarCollapsed&#x60; field&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should have a &#x60;navbarCollapsed&#x60; field&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Navbar.vue&quot;
+          ],
+          &quot;duration&quot;: 4,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Navbar.vue should have a &#x60;toggleNavbar&#x60; function&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should have a &#x60;toggleNavbar&#x60; function&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Navbar.vue&quot;
+          ],
+          &quot;duration&quot;: 14,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Navbar.vue should toggle the class on click&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should toggle the class on click&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Navbar.vue&quot;
+          ],
+          &quot;duration&quot;: 3,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Navbar.vue should display a link to the home page&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display a link to the home page&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Navbar.vue&quot;
+          ],
+          &quot;duration&quot;: 5,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Navbar.vue should display a link to the races page&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display a link to the races page&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    },
+    {
+      &quot;failureMessage&quot;: null,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 1,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1609175353173,
+        &quot;start&quot;: 1609175348935
+      },
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\tests\\unit\\validators.spec.ts&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;isOldEnough&quot;
+          ],
+          &quot;duration&quot;: 2,
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;isOldEnough should validate if a user is old enough&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should validate if a user is old enough&quot;
+        }
+      ],
+      &quot;skipped&quot;: false,
+      &quot;leaks&quot;: false
+    }
+  ],
+  &quot;wasInterrupted&quot;: false,
+  &quot;coverageMap&quot;: {
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\App.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\App.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 28,
+            &quot;column&quot;: 25
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 28,
+            &quot;column&quot;: 44
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 20
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 32,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 32,
+            &quot;column&quot;: 18
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 13
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 36,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 36,
+            &quot;column&quot;: 11
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 7
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 39,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 30,
+              &quot;column&quot;: 20
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 30,
+              &quot;column&quot;: null
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 30,
+              &quot;column&quot;: 20
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 34,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 1,
+        &quot;2&quot;: 1,
+        &quot;3&quot;: 1,
+        &quot;4&quot;: 3,
+        &quot;5&quot;: 3,
+        &quot;6&quot;: 2,
+        &quot;7&quot;: 2,
+        &quot;8&quot;: 3
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 3,
+        &quot;1&quot;: 2
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Races.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Races.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 13,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 13,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 23,
+            &quot;column&quot;: 10
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 23,
+            &quot;column&quot;: 22
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 24,
+            &quot;column&quot;: 10
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 24,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 26,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 26,
+            &quot;column&quot;: 10
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 26,
+            &quot;column&quot;: 18
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 26,
+            &quot;column&quot;: 24
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 28,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 28,
+            &quot;column&quot;: 11
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 22,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 22,
+              &quot;column&quot;: 8
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 22,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 31,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 2,
+        &quot;1&quot;: 2,
+        &quot;2&quot;: 2,
+        &quot;3&quot;: 2,
+        &quot;4&quot;: 1,
+        &quot;5&quot;: 1,
+        &quot;6&quot;: 2,
+        &quot;7&quot;: 1,
+        &quot;8&quot;: 1
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 1
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Race.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Race.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 18,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 18,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 20,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 20,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: 25
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: 34
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: 40
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: 48
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 39,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 39,
+            &quot;column&quot;: 16
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 34,
+              &quot;column&quot;: 7
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 34,
+              &quot;column&quot;: 8
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 34,
+              &quot;column&quot;: 13
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 40,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 37,
+              &quot;column&quot;: 34
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 37,
+              &quot;column&quot;: 40
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 37,
+              &quot;column&quot;: 34
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 37,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 3,
+        &quot;1&quot;: 3,
+        &quot;2&quot;: 3,
+        &quot;3&quot;: 3,
+        &quot;4&quot;: 3,
+        &quot;5&quot;: 3,
+        &quot;6&quot;: 3
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 3,
+        &quot;1&quot;: 3
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Pony.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Pony.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 26,
+            &quot;column&quot;: 21
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 26,
+            &quot;column&quot;: 23
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 27,
+            &quot;column&quot;: 25
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 27,
+            &quot;column&quot;: 34
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 27,
+            &quot;column&quot;: 40
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 27,
+            &quot;column&quot;: 56
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 10
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 16
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 26,
+              &quot;column&quot;: 7
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 26,
+              &quot;column&quot;: 8
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 26,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 34,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 34
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 40
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 34
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;2&quot;: {
+          &quot;name&quot;: &quot;clicked&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 29,
+              &quot;column&quot;: 13
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 29,
+              &quot;column&quot;: 20
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 29,
+              &quot;column&quot;: 20
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 31,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 4,
+        &quot;1&quot;: 4,
+        &quot;2&quot;: 4,
+        &quot;3&quot;: 7,
+        &quot;4&quot;: 7,
+        &quot;5&quot;: 7,
+        &quot;6&quot;: 1,
+        &quot;7&quot;: 7
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 7,
+        &quot;1&quot;: 7,
+        &quot;2&quot;: 1
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\PonyImageUrl.ts&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\PonyImageUrl.ts&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 48
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 2
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 64
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 16
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;getPonyImageUrl&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 16
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 31
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 47
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 1
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 4,
+        &quot;1&quot;: 7,
+        &quot;2&quot;: 4
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 7
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\statics.ts&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\statics.ts&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 13
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 40
+          }
+        }
+      },
+      &quot;fnMap&quot;: {},
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 4
+      },
+      &quot;f&quot;: {},
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\FromNow.ts&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\utils\\FromNow.ts&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 63
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 21
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 41
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 2
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 62
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 24
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;fromNow&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 10,
+              &quot;column&quot;: 24
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 10,
+              &quot;column&quot;: 31
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 10,
+              &quot;column&quot;: 50
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 1
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 4,
+        &quot;1&quot;: 4,
+        &quot;2&quot;: 4,
+        &quot;3&quot;: 4
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 4
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RaceService.ts&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RaceService.ts&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 26
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 2
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 4
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 23
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: 44
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 16
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;useRaceService&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 16
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 30
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 30
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 20,
+              &quot;column&quot;: 1
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 4
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 10
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 4
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 18,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 16,
+              &quot;column&quot;: null
+            }
+          },
+          &quot;type&quot;: &quot;switch&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 14,
+                &quot;column&quot;: 23
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 16,
+                &quot;column&quot;: null
+              }
+            }
+          ]
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 2,
+        &quot;1&quot;: 1,
+        &quot;2&quot;: 1,
+        &quot;3&quot;: 1,
+        &quot;4&quot;: 1,
+        &quot;5&quot;: 2
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 1
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          1
+        ]
+      }
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Navbar.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Navbar.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 21,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 21,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 25,
+            &quot;column&quot;: 28
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 25,
+            &quot;column&quot;: 32
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 28,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 28,
+            &quot;column&quot;: 21
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 31,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 31,
+            &quot;column&quot;: 11
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 24,
+              &quot;column&quot;: 7
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 24,
+              &quot;column&quot;: null
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 24,
+              &quot;column&quot;: 7
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 35,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;toggleNavbar&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 13
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 25
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 27,
+              &quot;column&quot;: 25
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 29,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 2,
+        &quot;1&quot;: 2,
+        &quot;2&quot;: 8,
+        &quot;3&quot;: 3,
+        &quot;4&quot;: 8
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 8,
+        &quot;1&quot;: 3
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Alert.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\components\\Alert.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 21
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 23
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 31,
+            &quot;column&quot;: 26
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 31,
+            &quot;column&quot;: 35
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 31,
+            &quot;column&quot;: 41
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 31,
+            &quot;column&quot;: 46
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 23
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 32
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 38
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 53
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 36,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 36,
+            &quot;column&quot;: 10
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 39,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 39,
+            &quot;column&quot;: 11
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 30,
+              &quot;column&quot;: 7
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 30,
+              &quot;column&quot;: 8
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 30,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 40,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 31,
+              &quot;column&quot;: 35
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 31,
+              &quot;column&quot;: 41
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 31,
+              &quot;column&quot;: 35
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 31,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;2&quot;: {
+          &quot;name&quot;: &quot;(anonymous_2)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 33,
+              &quot;column&quot;: 32
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 33,
+              &quot;column&quot;: 38
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 33,
+              &quot;column&quot;: 32
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 33,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;3&quot;: {
+          &quot;name&quot;: &quot;dismiss&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 35,
+              &quot;column&quot;: 13
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 35,
+              &quot;column&quot;: 20
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 35,
+              &quot;column&quot;: 20
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 37,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 4,
+        &quot;1&quot;: 4,
+        &quot;2&quot;: 5,
+        &quot;3&quot;: 5,
+        &quot;4&quot;: 6,
+        &quot;5&quot;: 5,
+        &quot;6&quot;: 6,
+        &quot;7&quot;: 3,
+        &quot;8&quot;: 5
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 5,
+        &quot;1&quot;: 6,
+        &quot;2&quot;: 6,
+        &quot;3&quot;: 3
+      },
+      &quot;b&quot;: {}
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Login.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Login.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 34,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 34,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 35,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 35,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 36,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 36,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 40,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 40,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 42,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 42,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 52,
+            &quot;column&quot;: 24
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 52,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 53,
+            &quot;column&quot;: 26
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 53,
+            &quot;column&quot;: 56
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 54,
+            &quot;column&quot;: 26
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 54,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;9&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 55,
+            &quot;column&quot;: 33
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 55,
+            &quot;column&quot;: 46
+          }
+        },
+        &quot;10&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 59,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 59,
+            &quot;column&quot;: 22
+          }
+        },
+        &quot;11&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 59,
+            &quot;column&quot;: 30
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 59,
+            &quot;column&quot;: 36
+          }
+        },
+        &quot;12&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 60,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 60,
+            &quot;column&quot;: 25
+          }
+        },
+        &quot;13&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 61,
+            &quot;column&quot;: 10
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 61,
+            &quot;column&quot;: 16
+          }
+        },
+        &quot;14&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 64,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 64,
+            &quot;column&quot;: 28
+          }
+        },
+        &quot;15&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 68,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 68,
+            &quot;column&quot;: 11
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 51,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 51,
+              &quot;column&quot;: 7
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 51,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 72,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;authenticate&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 57,
+              &quot;column&quot;: 19
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 57,
+              &quot;column&quot;: 32
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 57,
+              &quot;column&quot;: 53
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 66,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 60,
+              &quot;column&quot;: 12
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 60,
+              &quot;column&quot;: 25
+            }
+          },
+          &quot;type&quot;: &quot;if&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 60,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 60,
+                &quot;column&quot;: 25
+              }
+            },
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 60,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 60,
+                &quot;column&quot;: 25
+              }
+            }
+          ]
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 1,
+        &quot;2&quot;: 1,
+        &quot;3&quot;: 1,
+        &quot;4&quot;: 1,
+        &quot;5&quot;: 1,
+        &quot;6&quot;: 5,
+        &quot;7&quot;: 5,
+        &quot;8&quot;: 5,
+        &quot;9&quot;: 5,
+        &quot;10&quot;: 4,
+        &quot;11&quot;: 2,
+        &quot;12&quot;: 1,
+        &quot;13&quot;: 2,
+        &quot;14&quot;: 1,
+        &quot;15&quot;: 5
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 5,
+        &quot;1&quot;: 2
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          0,
+          1
+        ]
+      }
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RouterService.ts&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\RouterService.ts&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 39
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 17
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 28
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 13,
+            &quot;column&quot;: 2
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: 4
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 40
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 16
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;useRouterService&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 10,
+              &quot;column&quot;: 16
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 10,
+              &quot;column&quot;: 32
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 10,
+              &quot;column&quot;: 32
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 18,
+              &quot;column&quot;: 1
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 4
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 10
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 27
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 16,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 15,
+              &quot;column&quot;: 6
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 15,
+              &quot;column&quot;: 40
+            }
+          },
+          &quot;type&quot;: &quot;switch&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 15,
+                &quot;column&quot;: 6
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 15,
+                &quot;column&quot;: 40
+              }
+            }
+          ]
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 2,
+        &quot;1&quot;: 12,
+        &quot;2&quot;: 12,
+        &quot;3&quot;: 4,
+        &quot;4&quot;: 2
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 12,
+        &quot;1&quot;: 2
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          2
+        ]
+      }
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\UserService.ts&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\composables\\UserService.ts&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 26
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 13,
+            &quot;column&quot;: 2
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 23,
+            &quot;column&quot;: 4
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 23
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: 44
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 20,
+            &quot;column&quot;: 23
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 20,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 20,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 20,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 21,
+            &quot;column&quot;: 6
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 21,
+            &quot;column&quot;: 44
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 16
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;useUserService&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 16
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 30
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 30
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 24,
+              &quot;column&quot;: 1
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 4
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 10
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 39
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 17,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;2&quot;: {
+          &quot;name&quot;: &quot;(anonymous_4)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 19,
+              &quot;column&quot;: 4
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 19,
+              &quot;column&quot;: 10
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 19,
+              &quot;column&quot;: 49
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 22,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 15,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 15,
+              &quot;column&quot;: null
+            }
+          },
+          &quot;type&quot;: &quot;switch&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 15,
+                &quot;column&quot;: 23
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 15,
+                &quot;column&quot;: null
+              }
+            }
+          ]
+        },
+        &quot;1&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 20,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 20,
+              &quot;column&quot;: null
+            }
+          },
+          &quot;type&quot;: &quot;switch&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 20,
+                &quot;column&quot;: 23
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 20,
+                &quot;column&quot;: null
+              }
+            }
+          ]
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 2,
+        &quot;2&quot;: 1,
+        &quot;3&quot;: 1,
+        &quot;4&quot;: 1,
+        &quot;5&quot;: 1,
+        &quot;6&quot;: 1,
+        &quot;7&quot;: 1,
+        &quot;8&quot;: 1
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 2,
+        &quot;1&quot;: 1,
+        &quot;2&quot;: 1
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          1
+        ],
+        &quot;1&quot;: [
+          1
+        ]
+      }
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Register.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Register.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 58,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 58,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 60,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 60,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 62,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 62,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 63,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 63,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 64,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 64,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 66,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 66,
+            &quot;column&quot;: 15
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 76,
+            &quot;column&quot;: 25
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 76,
+            &quot;column&quot;: 27
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 77,
+            &quot;column&quot;: 24
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 77,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 78,
+            &quot;column&quot;: 24
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 78,
+            &quot;column&quot;: 54
+          }
+        },
+        &quot;9&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 79,
+            &quot;column&quot;: 26
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 79,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;10&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 80,
+            &quot;column&quot;: 31
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 80,
+            &quot;column&quot;: 44
+          }
+        },
+        &quot;11&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 84,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 84,
+            &quot;column&quot;: 20
+          }
+        },
+        &quot;12&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 84,
+            &quot;column&quot;: 28
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 84,
+            &quot;column&quot;: 34
+          }
+        },
+        &quot;13&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 85,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 85,
+            &quot;column&quot;: 23
+          }
+        },
+        &quot;14&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 86,
+            &quot;column&quot;: 10
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 86,
+            &quot;column&quot;: 16
+          }
+        },
+        &quot;15&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 89,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 89,
+            &quot;column&quot;: 26
+          }
+        },
+        &quot;16&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 93,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 93,
+            &quot;column&quot;: 11
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 75,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 75,
+              &quot;column&quot;: 7
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 75,
+              &quot;column&quot;: 2
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 98,
+              &quot;column&quot;: null
+            }
+          }
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;register&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 82,
+              &quot;column&quot;: 19
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 82,
+              &quot;column&quot;: 28
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 82,
+              &quot;column&quot;: 51
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 91,
+              &quot;column&quot;: null
+            }
+          }
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 85,
+              &quot;column&quot;: 12
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 85,
+              &quot;column&quot;: 23
+            }
+          },
+          &quot;type&quot;: &quot;if&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 85,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 85,
+                &quot;column&quot;: 23
+              }
+            },
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 85,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 85,
+                &quot;column&quot;: 23
+              }
+            }
+          ]
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 1,
+        &quot;2&quot;: 1,
+        &quot;3&quot;: 1,
+        &quot;4&quot;: 1,
+        &quot;5&quot;: 1,
+        &quot;6&quot;: 7,
+        &quot;7&quot;: 7,
+        &quot;8&quot;: 7,
+        &quot;9&quot;: 7,
+        &quot;10&quot;: 7,
+        &quot;11&quot;: 4,
+        &quot;12&quot;: 2,
+        &quot;13&quot;: 1,
+        &quot;14&quot;: 2,
+        &quot;15&quot;: 1,
+        &quot;16&quot;: 7
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 7,
+        &quot;1&quot;: 2
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          0,
+          1
+        ]
+      }
+    },
+    &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Home.vue&quot;: {
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\src\\views\\Home.vue&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: null
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 15
+          }
+        }
+      },
+      &quot;fnMap&quot;: {},
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 1
+      },
+      &quot;f&quot;: {},
+      &quot;b&quot;: {}
+    }
+  }
+}</div>
+        </div>
+        <div class="d-none" id="test-global-config">{
+  &quot;bail&quot;: 0,
+  &quot;changedFilesWithAncestor&quot;: false,
+  &quot;collectCoverage&quot;: true,
+  &quot;collectCoverageFrom&quot;: [
+    &quot;**&#x2F;*.{ts,vue}&quot;,
+    &quot;!src&#x2F;*.ts&quot;,
+    &quot;!tests&#x2F;**&quot;,
+    &quot;!coverage&#x2F;**&quot;,
+    &quot;!dist&#x2F;**&quot;,
+    &quot;!**&#x2F;node_modules&#x2F;**&quot;
+  ],
+  &quot;coverageDirectory&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\coverage&quot;,
+  &quot;coverageReporters&quot;: [
+    &quot;text&quot;,
+    &quot;html&quot;,
+    &quot;lcov&quot;,
+    &quot;json-summary&quot;
+  ],
+  &quot;coverageThreshold&quot;: null,
+  &quot;detectLeaks&quot;: false,
+  &quot;detectOpenHandles&quot;: false,
+  &quot;errorOnDeprecated&quot;: false,
+  &quot;expand&quot;: false,
+  &quot;filter&quot;: null,
+  &quot;globalSetup&quot;: null,
+  &quot;globalTeardown&quot;: null,
+  &quot;json&quot;: false,
+  &quot;listTests&quot;: false,
+  &quot;maxConcurrency&quot;: 5,
+  &quot;maxWorkers&quot;: 3,
+  &quot;noStackTrace&quot;: false,
+  &quot;nonFlagArgs&quot;: [],
+  &quot;notify&quot;: false,
+  &quot;notifyMode&quot;: &quot;failure-change&quot;,
+  &quot;passWithNoTests&quot;: false,
+  &quot;projects&quot;: null,
+  &quot;reporters&quot;: [
+    [
+      &quot;default&quot;,
+      {}
+    ],
+    [
+      &quot;D:\\Codes\\LearningVue\\ponyracer\\node_modules\\jest-stare\\lib\\index.js&quot;,
+      {}
+    ]
+  ],
+  &quot;rootDir&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer&quot;,
+  &quot;runTestsByPath&quot;: false,
+  &quot;skipFilter&quot;: false,
+  &quot;testFailureExitCode&quot;: 1,
+  &quot;testPathPattern&quot;: &quot;&quot;,
+  &quot;testResultsProcessor&quot;: null,
+  &quot;testSequencer&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\node_modules\\@jest\\test-sequencer\\build\\index.js&quot;,
+  &quot;updateSnapshot&quot;: &quot;new&quot;,
+  &quot;useStderr&quot;: false,
+  &quot;verbose&quot;: null,
+  &quot;watch&quot;: false,
+  &quot;watchPlugins&quot;: [
+    {
+      &quot;config&quot;: {},
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\node_modules\\jest-watch-typeahead\\filename.js&quot;
+    },
+    {
+      &quot;config&quot;: {},
+      &quot;path&quot;: &quot;D:\\Codes\\LearningVue\\ponyracer\\node_modules\\jest-watch-typeahead\\testname.js&quot;
+    }
+  ],
+  &quot;watchman&quot;: true
+}</div>
+
+    </main>
+    <hr>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">jest-stare 2020</span>
+        </div>
+    </footer>
+</body>
+
+</html>
+

@@ -1,0 +1,1 @@
+{"pack":"8","id":13,"title":"Custom validators in forms","specs":[{"name":"tests/e2e/specs/register.spec.js","hash":"5c9184c3762856da046b51368dbae56619a034f9"},{"name":"tests/unit/validators.spec.ts","hash":"6c9ec118f151e61337d0bc21f1d5eb789e73f2d5"},{"name":"tests/unit/views/Register.spec.ts","hash":"22e70170857ede1edbde5ca942e9bfe1683487fa"}]}

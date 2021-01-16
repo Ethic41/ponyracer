@@ -1,0 +1,37 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-28T17:09:56.118Z",
+    "end": "2020-12-28T17:09:58.980Z",
+    "duration": 2862
+  },
+  "suites": [
+    {
+      "title": "Register",
+      "tests": [
+        {
+          "fullTitle": "Register should display a register page",
+          "title": "should display a register page",
+          "duration": 2728,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "Register should display a register page",
+      "title": "should display a register page",
+      "duration": 2728,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}
